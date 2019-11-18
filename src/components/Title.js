@@ -1,33 +1,35 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 
-export class Title extends Component {
-  state = {
-    value: document.title
-  };
+export const Title = () => {
+  const [title, setTitle] = useState(document.title);
+  const [n, setN] = useState(3);
 
-  handleChange = e => {
-    const { value } = e.target;
-    if (value.length >= 3) {
-      document.title = value;
+  useEffect(() => {
+    if (title.length >= n) {
+      document.title = title;
     }
+    setTitle("hola");
+  }, [n]);
 
-    this.setState({ value });
-  };
-
-  render() {
-    return (
-      <div className="example">
-        <h3>Change the title</h3>
-        <label className="input-block">
-          TITLE:
-          <input value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <small>
-          solo si tiene mas de{" "}
-          <input value={3} onChange={() => {}} style={{ width: "10px" }} />{" "}
-          letras
-        </small>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="example">
+      <h3>Change the title</h3>
+      <label className="input-block">
+        TITLE:
+        <input
+          value={title}
+          onChange={({ target }) => setTitle(target.value)}
+        />
+      </label>
+      <small>
+        solo si tiene mas de{" "}
+        <input
+          value={n}
+          onChange={({ target: { value } }) => setN(value)}
+          style={{ width: "10px" }}
+        />{" "}
+        letras
+      </small>
+    </div>
+  );
+};

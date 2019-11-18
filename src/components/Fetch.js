@@ -6,9 +6,11 @@ export const Fetch = () => {
   const [pikachu, setPikachu] = useState(null);
 
   useEffect(() => {
-    fetch(`${apiUrl}pokemon/pikachu/`)
-      .then(res => res.json())
-      .then(setPikachu);
+    setTimeout(() => {
+      fetch(`${apiUrl}pokemon/pikachu/`)
+        .then(res => res.json())
+        .then(setPikachu);
+    }, 500);
   }, []);
 
   return (

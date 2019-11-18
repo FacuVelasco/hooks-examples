@@ -1,28 +1,24 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export class Counter extends Component {
-  state = {
-    value: 0
+export const Counter = () => {
+  const [value, setValue] = useState();
+
+  const onIncrease = () => {
+    setValue(value + 1);
   };
 
-  onIncrease = () => {
-    this.setState(({ value }) => ({ value: value + 1 }));
+  const onDecrease = () => {
+    setValue(value - 1);
   };
 
-  onDecrease = () => {
-    this.setState(({ value }) => ({ value: value - 1 }));
-  };
-
-  render() {
-    return (
-      <div className="example">
-        <h3>Crapy Counter</h3>
-        <div>
-          <button onClick={this.onIncrease}>+1</button>
-          <button onClick={this.onDecrease}>-1</button>
-        </div>
-        <p>{this.state.value}</p>
+  return (
+    <div className="example">
+      <h3>Crappy Counter</h3>
+      <div>
+        <button onClick={onIncrease}>+1</button>
+        <button onClick={onDecrease}>-1</button>
       </div>
-    );
-  }
-}
+      <p>{value}</p>
+    </div>
+  );
+};

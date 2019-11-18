@@ -27,7 +27,7 @@ export const CustomInput = () => {
         validate={emailValidation}
         errorMessage="Invalid email"
       />
-      <Input
+      {/* <Input
         name="name"
         validate={nameValidation}
         errorMessage="Name too short"
@@ -36,7 +36,7 @@ export const CustomInput = () => {
         name="surname"
         validate={nameValidation}
         errorMessage="Surname too short"
-      />
+      /> */}
     </div>
   );
 };

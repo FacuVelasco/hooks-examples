@@ -1,45 +1,32 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-const emptyState = {
-  name: "",
-  surname: "",
-  email: ""
+const useInputWithReaction = fn => {
+  const [input, setInput] = useState("");
+  useEffect(() => {
+    fn();
+  }, [input]);
+  return [input, setInput];
 };
 
-export class Form extends Component {
-  state = emptyState;
+export const Form = () => {
+  const [input, setInput] = useInputWithReaction(() =>
+    console.log("send ajax request")
+  );
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    alert("FORM SUBMIT:" + JSON.stringify(this.state));
-    // post some action
-    this.setState(emptyState);
-  };
-
-  render() {
-    return (
-      <div className="example">
-        <h3>Crapy form</h3>
-        <form onSubmit={this.handleSubmit} className="vertical-form">
-          {Object.keys(this.state).map(value => (
-            <label key={value} className="input-block">
-              {value.toUpperCase()}:
-              <input
-                name={value}
-                value={this.state[value]}
-                onChange={this.handleChange}
-              />
-            </label>
-          ))}
-          <button style={{ alignSelf: "flex-end" }}>SUBMIT</button>
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="example">
+      <h3>Crappy form</h3>
+      <form className="vertical-form">
+        <label className="input-block">
+          AUTOCOMPLETE:
+          <input
+            name="name"
+            value={input}
+            onChange={({ target }) => setInput(target.value)}
+          />
+        </label>
+        <button style={{ alignSelf: "flex-end" }}>SUBMIT</button>
+      </form>
+    </div>
+  );
+};
