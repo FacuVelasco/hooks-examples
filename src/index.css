@@ -93,5 +93,6 @@ section {
   background: rgba(0, 0, 0, 0.1);
   min-width: 40%;
   min-height: 60vh;
+  justify-content: space-between;
   padding: 5%;
 }
