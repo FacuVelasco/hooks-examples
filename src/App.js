@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import * as examples from "./examples";
 
 function App() {
+  const [example, setExample] = React.useState("State");
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ul className="header-list">
+          {Object.keys(examples).map(ex => (
+            <li
+              className={ex === example ? "selected" : ""}
+              key={ex}
+              onClick={() => setExample(ex)}
+            >
+              {ex.toUpperCase()}
+            </li>
+          ))}
+        </ul>
       </header>
+      <section>{React.createElement(examples[example])}</section>
     </div>
   );
 }

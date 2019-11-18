@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Bariloche",
+    "country": "Argentina",
+    "continent": "America"
+  },
+  {
+    "name": "Belgrado",
+    "country": "Servia",
+    "continent": "Europa"
+  },
+  {
+    "name": "Brasilia",
+    "country": "Brasil",
+    "continent": "America"
+  },
+  {
+    "name": "Bagdad",
+    "country": "Irak",
+    "continent": "Asia"
+  },
+  {
+    "name": "Bangkok",
+    "country": "Tailandia",
+    "continent": "Asia"
+  },
+  {
+    "name": "Bogota",
+    "country": "Colombia",
+    "continent": "America"
+  },
+  {
+    "name": "Barcelona",
+    "country": "España",
+    "continent": "Europa"
+  },
+  {
+    "name": "Bloemfontein",
+    "country": "Sudafrica",
+    "continent": "Africa"
+  }
+]
